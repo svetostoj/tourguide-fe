@@ -52,7 +52,16 @@ class App extends Component {
   logout = () => {
     // console.log('logout')
     // update state to remove token
+    // const token = localStorage.removeItem('token')
+    localStorage.removeItem('token')
     // update state to set isLoggedIn to false
+    
+    this.setState({
+      token: null,
+      isLoggedIn: false 
+
+    })
+
   }
 
   render() {
@@ -65,6 +74,7 @@ class App extends Component {
           <LoginForm handleSubmit={this.login}/> 
         }
       </Fragment>
+      
   }
 }
 
