@@ -5,33 +5,33 @@ import axios from './init'
 // auth.loginUser()
 
 export default {
-    fetchToken,
-    fetchAccount
+    login
 }
 
-async function fetchToken(email, password) {
+async function login(email, password) {
     // pretending to post the username, password
     // post gives back token if success
-    const response = await axios.post('./auth/login', {
+    const payload = {
         email,
         password
-    })
-    const {token} = response.data
-    return token
+    }
+    const response = await axios.post('/auth/login', payload)
+    console.log(response)
+    return true
 }
 
 
-async function fetchAccount(token) {
-    const response = await axios.get('/bookings', {
+// async function fetchAccount(token) {
+//     const response = await axios.get('/bookings', {
 
-        headers : {
-            'Content-Type': `Bearer ${token}`
-        }
-    })
-    const bookings = response.data
-    return bookings
+//         headers : {
+//             'Content-Type': `Bearer ${token}`
+//         }
+//     })
+//     const bookings = response.data
+//     return bookings
    
-}
+// }
 
 
 

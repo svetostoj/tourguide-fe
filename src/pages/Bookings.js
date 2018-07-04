@@ -20,10 +20,11 @@ class Bookings extends Component {
         // deconstructing
         const { bookings } = this.state
         if (!bookings) return <h3>fetching bookings...</h3>
+        console.log (bookings)
         return <ul>
-            {bookings.map(booking => {
-                    return <li key={booking.id}>
-                        <Link to={`/bookings/${booking.id}`}>
+             {bookings.map(booking => {
+                    return <li key={booking._id}>
+                        <Link to={`/bookings/${booking._id}`}>
                             {bookings.booking} </Link></li>
                 })}
         </ul>

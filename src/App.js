@@ -8,19 +8,20 @@ import auth from './api/auth'
 class App extends Component {
 
   state = {
-    token: '',
     isLoggedIn: false,
   }
 
   login = (username, password) => {
-    auth.fetchToken(username, password)
-    .then(token => {
-      localStorage.setItem('token', token)
-      return token
-    })
-    .then(token => {
+    auth.login(username, password)
+    .then(() => {
+        localStorage.setItem('login', 'true')
+        this.setState({
+          isLoggedIn: true
+        })
+      }
+    )
+    .then(() => {
       this.setState({
-        token,
         isLoggedIn: true 
       })
     })
@@ -29,12 +30,11 @@ class App extends Component {
     componentDidMount() {
       // nothing here so far
       // locked in
-      const token = localStorage.getItem('token')
+      const login = localStorage.getItem('login')
       // token (007)
       // token null
-      if(token) {
+      if(login) {
         this.setState({
-          token,
           isLoggedIn: true 
         })
       }
@@ -65,7 +65,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(window)
     const {isLoggedIn} = this.state
     return <Fragment>
         {isLoggedIn ? 
