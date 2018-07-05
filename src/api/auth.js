@@ -5,10 +5,10 @@ import axios from './init'
 // auth.loginUser()
 
 export default {
-    login
+    loginFunc
 }
 
-async function login(email, password) {
+async function loginFunc(email, password) {
     // pretending to post the username, password
     // post gives back token if success
     const payload = {

@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
-import LoginForm from './components/LoginForm'
+// import LoginForm from './components/LoginForm'
 import auth from './api/auth'
 // import Table from './pages/Table';
-import Bookings from './pages/Bookings';
+import Bookingss from './pages/Bookingss';
 
 class App extends Component {
 
@@ -37,19 +37,11 @@ class App extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.state
+    // const { isLoggedIn } = this.state
     return <Fragment>
-      {isLoggedIn ?
-        <button onClick={this.logout}>Logout</button>
-        :
-        <LoginForm handleSubmit={this.login} />
-      }
+     <Bookingss />
 
-      {isLoggedIn ? 
-      <Bookings />
-      :
-      ''
-      }
+    
     </Fragment>
   }
 }

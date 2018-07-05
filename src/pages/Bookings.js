@@ -24,8 +24,11 @@ class Bookings extends Component {
         return <ul>
              {bookings.map(booking => {
                     return <li key={booking._id}>
-                        <Link to={`/bookings/${booking._id}`}>
-                            {bookings.booking} </Link></li>
+                        
+                            {booking.booking} ~~
+                            {booking.fromto} ~~
+                            {booking.price/100}
+                            </li>
                 })}
         </ul>
     }
