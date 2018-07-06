@@ -1,8 +1,5 @@
 import axios from './init'
 
-// example
-// import auth from './api/auth'
-// auth.loginUser()
 
 export default {
     loginFunc
